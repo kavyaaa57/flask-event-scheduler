@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<h2>Events</h2>
+
+<a href="/events/add">Add Event</a>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+    <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Event Type</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Description</th>
+    </tr>
+
+    {% for event in events %}
+    <tr>
+        <td>{{event.id}}</td>
+        <td>{{event.title}}</td>
+        <td>{{event.event_type}}</td>
+        <td>{{event.start_time}}</td>
+        <td>{{event.end_time}}</td>
+        <td>{{event.description}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

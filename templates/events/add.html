@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block title %}Add Event{% endblock %}
+
+{% block content %}
+<h2>Add Event</h2>
+
+<form method="POST" action="/events/add">
+    <label>Title</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Event Type </label><br>
+    <select name="event_type" required>
+        <option value="">Select Event Type</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Seminar">Seminar</option>
+        <option value="Class">Class</option>
+    </select><br><br>
+
+    <label>Start Time</label><br>
+    <input type="datetime-local" name="start_time" required><br><br>
+
+    <label>End Time</label><br>
+    <input type="datetime-local" name="end_time" required><br><br>
+
+    <label >Description</label><br>
+    <textarea name="description"></textarea><br><br>
+
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
