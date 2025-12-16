@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+<h2>Resources</h2>
+
+<a href="/resources/add">Add Resources</a>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+    <tr>
+    <th>ID</th>
+    <th>Resource Name</th>
+    <th>Resource Type</th>
+    <th>Quantity</th>
+
+
+    </tr>
+
+    {% for resource in resources %}
+    <tr>
+        <td>{{resource.id}}</td>>
+        <td>{{resource.resource_name}}</td>
+        <td>{{resource.resource_type}}</td>
+        <td>{{resource.resource_qty}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

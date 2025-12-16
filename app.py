@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask import request, redirect, url_for
 from datetime import datetime
 from models.event import Event
+from models.resource import Resource
 from extensions import db
 
 app=Flask(__name__)
@@ -29,5 +30,24 @@ def add_event():
         return redirect(url_for('event_list'))
         
     return render_template('events/add.html')
+
+@app.route('/resources')
+def resource_list():
+    resources=Resource.query.all()
+    return render_template('resources/list.html', resources=resources)
+
+@app.route('/resources/add', methods=['GET', 'POST'])
+def add_resources():
+    if request.method=='POST':
+        resource=Resource(
+            resource_name=request.form['resource_name'],
+            resource_type=request.form['resource_type'],
+            resource_qty=request.form['resource_qty']
+        )
+        db.session.add(resource)
+        db.session.commit()
+        return redirect(url_for('resource_list'))
+
+    return render_template('resources/add.html')
 if __name__=='__main__':
     app.run(debug=True)

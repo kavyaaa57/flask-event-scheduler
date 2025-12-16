@@ -7,3 +7,5 @@ class Event(db.Model):
     start_time=db.Column(db.DateTime, nullable=False)
     end_time=db.Column(db.DateTime, nullable=False)
     description=db.Column(db.Text)
+
+
