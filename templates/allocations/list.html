@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}Resource Allocations{% endblock %}
+
+{% block content %}
+<h2>Resource Allocations</h2>
+<a href="/allocations/add" class="button">Allocate Resources</a>
+{% for event, allocs in grouped_allocations.items() %}
+<div class="body-section">
+<h3>{{ event.title }}</h3>
+<p>
+    Time: {{ event.start_time }} – {{ event.end_time }}
+</p>
+
+<table border="1" cellpadding="8" cellspacing="0" width="100%">
+    <tr>
+        <th>Resource Type</th>
+        <th>Resource</th>
+        <th>Quantity</th>
+    </tr>
+
+    {% for alloc in allocs %}
+    <tr>
+        <td>{{ alloc.resource.resource_type }}</td>
+        <td>{{ alloc.resource.resource_name }}</td>
+        <td>{{ alloc.qty_allocated }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<br>
+
+{% endfor %}
+
+{% endblock %}

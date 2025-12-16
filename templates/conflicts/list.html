@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Resource Conflicts</h2>
+
+{% if conflicts %}
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Resource</th>
+        <th>Event 1</th>
+        <th>Time</th>
+        <th>Event 2</th>
+        <th>Time</th>
+    </tr>
+    {% for c in conflicts %}
+    <tr>
+        <td>{{ c.resource }}</td>
+        <td>{{ c.event1 }}</td>
+        <td>{{ c.time1 }}</td>
+        <td>{{ c.event2 }}</td>
+        <td>{{ c.time2 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No conflicts found</p>
+{% endif %}
+
+{% endblock %}

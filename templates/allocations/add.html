@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% block title %}Allocate Resource{% endblock %}
+
+{% block content %}
+<h2>Allocate Resource to Event</h2>
+
+<form method="POST" action="/allocations/add">
+
+    <label>Event</label><br>
+    <select name="event_id" required>
+        <option value="">Select Event</option>
+        {% for event in events %}
+            <option value="{{ event.id }}">
+                {{ event.title }} ({{ event.start_time }} - {{ event.end_time }})
+            </option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Resource Type</label><br>
+    <select name="resource_type" required>
+        <option value="">Select Type</option>
+        <option value="Room">Room</option>
+        <option value="Instructor">Instructor</option>
+        <option value="Equipment">Equipment</option>
+    </select>
+    <br><br>
+
+    <label>Resource</label><br>
+    <select name="resource_id" required>
+        <option value="">Select Resource</option>
+        {% for resource in resources %}
+            <option value="{{ resource.id }}">
+                {{ resource.resource_name }} ({{ resource.resource_type }})
+            </option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Quantity (only for Equipment)</label><br>
+    <input type="number" name="qty_allocated" min="1">
+    <br><br>
+
+    <button type="submit">Allocate</button>
+</form>
+
+{% endblock %}

@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Scheduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Event Scheduling and Resource Allocation System</h1>
-    <hr>
-    {% block content %}{% endblock %}
+    <nav>
+        <a href="/events">Events</a>
+        <a href="/resources">Resources</a>
+        <a href="/allocations">Allocations</a>
+        <a href="/conflicts">Conflicts</a>
+        <a href="/reports/utilisation_list">Utilisation Report</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
