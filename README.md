@@ -24,7 +24,7 @@ https://www.figma.com/board/nepfVNshc9RZeY38tc2KGJ/Untitled?node-id=0-1&t=3EEnQF
 ![Allocations Add](screenshots/Allocation_add.png)
 
 ### Conflict
-![Utilisation Report](screenshots/conflicts.png)
+![Utilisation Report](screenshots/Conflicts.png)
 
 ### Utilisation Report
-![Utilisation Report](screenshots/utilisation_report.png)
+![Utilisation Report](screenshots/Utilisation_report.png)
